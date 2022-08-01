@@ -1,11 +1,12 @@
 <template>
     <div >
-        <div @click="addSlots()" class="flex mb-4 space-x-2 text-3xl font-bold">click Here to see the available time slots</div>
-            <div v-for="(per, index) in timeSlots" v-bind:index="index" :key="per" class="flex">
+        <div @click="addSlots()" class="flex mb-4 space-x-2 text-3xl font-bold bg-pink-400 ">click Here to see the available time slots</div>
+            <div v-for="(per, index) in timeSlots" v-bind:index="index" :key="per" class="flex border border-black w-1/4 mt-2">
                 <p>Start Time -{{ per.startTime }} </p>
                 <p>End Time -{{ per.endTime }}</p>
-                <button class="border border-gray-400 px-3 py-1 max-w-xs rounded bg-red-600 text-white" type="submit"
-                    value="Submit"><a href="demo.vu"> Book Now </a></button>
+                <!-- <button class="border border-gray-400 px-3 py-1 max-w-xs rounded bg-red-600 text-white" type="submit"
+                    value="Submit"><NuxtLink to="./demo.vue">Book Now</NuxtLink> </button> -->
+                    <NuxtLink to="demo" class="border border-gray-400 px-3 py-1 max-w-xs rounded bg-red-600 text-white">Book Now</NuxtLink>
             </div>
         </div>
 </template>
