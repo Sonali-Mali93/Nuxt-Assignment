@@ -1,11 +1,11 @@
 <template>
-    <div>
-        <div @click="addSlots()" class="flex mb-4 space-x-2">click</div>
-            <div>
-                <p>Start Time -{{startTime}} </p>
-                <p>End Time -</p>
+    <div >
+        <div @click="addSlots()" class="flex mb-4 space-x-2 text-3xl font-bold">click Here to see the available time slots</div>
+            <div v-for="(per, index) in timeSlots" v-bind:index="index" :key="per" class="flex">
+                <p>Start Time -{{ per.startTime }} </p>
+                <p>End Time -{{ per.endTime }}</p>
                 <button class="border border-gray-400 px-3 py-1 max-w-xs rounded bg-red-600 text-white" type="submit"
-                    value="Submit"> Book Now</button>
+                    value="Submit"><a href="demo.vu"> Book Now </a></button>
             </div>
         </div>
 </template>
@@ -33,11 +33,11 @@ export default {
             var d;
             d = new Date('2022-08-01 09:00:00');
             for(let i = 0; i<20 ; i++){
-             = d.setMinutes(d.getMinutes() + 10);
+             d.setMinutes(d.getMinutes() + 10);
              this.timeSlots.push(d)
             console.log("newtime",d)
             }
-                        console.log("newtime",d)
+            console.log("newtime",this.timeSlots)
 
         }
     }
