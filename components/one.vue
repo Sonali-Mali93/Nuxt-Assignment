@@ -1,9 +1,10 @@
 <template>
-    <div>        
-        <div @click="addSlots()" class=" openForm flex mb-4 space-x-2 text-3xl font-bold bg-pink-400 ">click Here to see the
+    <div>
+        <div @click="addSlots()" class=" openForm flex mb-4 space-x-2 text-3xl font-bold bg-pink-400 ">click Here to see
+            the
             available time slots</div>
 
-             <form  v-if="flag==true" @submit="submitForm" class="px-4 my-10 max-w-3xl mx-auto space-y-3 drop-shadow-md"
+        <form v-if="flag == true" @submit="submitForm" class="px-4 my-10 max-w-3xl mx-auto space-y-3 drop-shadow-md"
             method="post">
             <h1 class="text-3xl font-semibold">Book the slots</h1>
             <hr class="bg-black">
@@ -26,7 +27,7 @@
                     value="Submit">Submit</button>
             </div>
         </form>
-        <div v-for="(per, index) in users" v-bind:index="index" :key="per" class="flex flex-wrap -mb-4 ">
+        <!-- <div v-for="(per, index) in users" v-bind:index="index" :key="per" class="flex flex-wrap -mb-4 ">
             <div class="w-1/3 mb-4 bg-red-400 space-y-4">
                 <p>Name - {{ per.firstName }}</p>
                 <p>Mobile No - {{ per.contact }}</p>
@@ -34,25 +35,30 @@
                     class="border border-gray-400 px-3 py-1 max-w-xs rounded bg-red-600 text-white" type="submit"
                     value="Submit"> Edit Details</button>
             </div>
-        </div>  
+        </div> -->
 
 
-        <div class="flex flex-wrap flex-row space-y-3">
-        <div v-for="(per) in timeSlots" :key="per" >
+        <div class="flex flex-wrap flex-row space-y-3 space-x-3">
             <!---main card div-->
-            <div class="max-w-sm rounded overflow-hidden ">
+            <div v-for="(per) in timeSlots" :key="per" v-bind:index="index" class="max-w-sm rounded overflow-hidden border border-red-700 ">
+
                 <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">Start Time - {{ per.startTime }}</div>
                     <div class="font-bold text-xl mb-2">Last Time - {{ per.endTime }}</div>
-                    <div class="font-bold text-xl mb-2"></div>
+                    <div v-for="(detail, index) in users" v-bind:index="index" :key="detail">
+                        <div class="font-bold text-xl mb-2">Name {{ detail.firstName }}</div>
+                        <div class="font-bold text-xl mb-2">Mobile No - {{ detail.contact }}</div>
+
+                    </div>
 
                 </div>
                 <div class="px-6 pt-4 pb-2">
-                    <button @click="showForm" class="border border-gray-400 px-3 py-1 max-w-xs rounded bg-red-600 text-white ">Book Now
+                    <button @click="showForm"
+                        class="border border-gray-400 px-3 py-1 max-w-xs rounded bg-red-600 text-white ">Book Now
                     </button>
                 </div>
             </div>
-        </div>
+            <!-- </div> -->
 
         </div>
     </div>
@@ -65,7 +71,7 @@ export default {
         return {
             timeSlots: [],
             i: 0,
-            flag:false,
+            flag: false,
             users: [],
             user: {
                 isEdit: true,
@@ -122,27 +128,10 @@ export default {
             this.isEdit = true;
             this.editIndex = index;
         },
-        showForm(){
+        showForm() {
             this.flag = true
         }
-        //  addSlots() {
-        //     var d;
-        //     d = new Date('2022-08-02 09:00:00');
-        //     // this.timeSlots.push(this.initialTime);
-        //     console.log("timeSlots", this.timeSlots)
-        //     for (let i = 0; i < 20; i++) {
-        //         d.setMinutes(d.getMinutes() + 10);
-        //         // d.getTime()
-        //         this.timeSlots[this.startTime] = (d.toLocaleTimeString())
-        //         console.log("Start Time",this.startTime )
-        //         // this.timeSlots.push(d)
-        //         console.log("time", d.toLocaleTimeString())
-        //         this.timeSlots.push(this.initialTime);
-
-        //     }
-        //     console.log("newtime", this.timeSlots)
-
-        // }
+       
     }
 }
 </script>
