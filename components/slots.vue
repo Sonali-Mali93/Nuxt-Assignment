@@ -33,10 +33,10 @@ export default {
             // var d2 = new Date('2022-08-02 09:00:00');
             for (let i = 0; i < 20; i++) {
                 d1.setMinutes(d1.getMinutes() + 10);
-                // d2.setMinutes(d2.getMinutes() + 10);
+                d2.setMinutes(d2.getMinutes() + 10);
                 this.timeSlots.push({
                     startTime: d1.toLocaleTimeString(),
-                    // endTime: d2.toLocaleTimeString()
+                    endTime: d2.toLocaleTimeString()
                 })
                 // console.log("Current Date and Time =",d1)
                 // console.log("Time",d1.toLocaleTimeString())
