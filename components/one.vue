@@ -1,26 +1,9 @@
 <template>
-    <div>
+    <div>        
         <div @click="addSlots()" class=" openForm flex mb-4 space-x-2 text-3xl font-bold bg-pink-400 ">click Here to see the
             available time slots</div>
 
-        <div v-for="(per) in timeSlots" :key="per" class="flex flex-row space-y-3">
-            <!---main card div-->
-            <div class=" flex flex-col  max-w-sm rounded overflow-hidden shadow-lg">
-                <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">Start Time - {{ per.startTime }}</div>
-                    <div class="font-bold text-xl mb-2">Last Time - {{ per.endTime }}</div>
-                    <div class="font-bold text-xl mb-2"></div>
-
-                </div>
-                <div class="px-6 pt-4 pb-2">
-                    <button @click="showForm" class="border border-gray-400 px-3 py-1 max-w-xs rounded bg-red-600 text-white ">Book Now
-                    </button>
-                </div>
-            </div>
-        </div>
-
-
-        <form  v-if ="flag==true" @submit="submitForm" class="px-4 my-10 max-w-3xl mx-auto space-y-3 drop-shadow-md"
+             <form  v-if="flag==true" @submit="submitForm" class="px-4 my-10 max-w-3xl mx-auto space-y-3 drop-shadow-md"
             method="post">
             <h1 class="text-3xl font-semibold">Book the slots</h1>
             <hr class="bg-black">
@@ -51,6 +34,26 @@
                     class="border border-gray-400 px-3 py-1 max-w-xs rounded bg-red-600 text-white" type="submit"
                     value="Submit"> Edit Details</button>
             </div>
+        </div>  
+
+
+        <div class="flex flex-wrap flex-row space-y-3">
+        <div v-for="(per) in timeSlots" :key="per" >
+            <!---main card div-->
+            <div class="max-w-sm rounded overflow-hidden ">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2">Start Time - {{ per.startTime }}</div>
+                    <div class="font-bold text-xl mb-2">Last Time - {{ per.endTime }}</div>
+                    <div class="font-bold text-xl mb-2"></div>
+
+                </div>
+                <div class="px-6 pt-4 pb-2">
+                    <button @click="showForm" class="border border-gray-400 px-3 py-1 max-w-xs rounded bg-red-600 text-white ">Book Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
         </div>
     </div>
     <!--End of Div-->
