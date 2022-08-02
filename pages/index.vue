@@ -1,6 +1,7 @@
 <template>
     <div>
-        <slots/>
+        <!-- <slots/> -->
+        <one/>
         <!-- <demo /> -->
     </div>
 </template>
