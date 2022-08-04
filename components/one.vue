@@ -27,16 +27,6 @@
                     value="Submit">Submit</button>
             </div>
         </form>
-        <!-- <div v-for="(per, index) in users" v-bind:index="index" :key="per" class="flex flex-wrap -mb-4 ">
-            <div class="w-1/3 mb-4 bg-red-400 space-y-4">
-                <p>Name - {{ per.firstName }}</p>
-                <p>Mobile No - {{ per.contact }}</p>
-                <button @click="editData(index)"
-                    class="border border-gray-400 px-3 py-1 max-w-xs rounded bg-red-600 text-white" type="submit"
-                    value="Submit"> Edit Details</button>
-            </div>
-        </div> -->
-
 
         <div class="flex flex-wrap flex-row space-y-3 space-x-3">
             <!---main card div-->
@@ -46,9 +36,11 @@
                     <div class="font-bold text-xl mb-2">Start Time - {{ per.startTime }}</div>
                     <div class="font-bold text-xl mb-2">Last Time - {{ per.endTime }}</div>
                     <div v-for="(detail, index) in users" v-bind:index="index" :key="detail">
-                        <div class="font-bold text-xl mb-2">Name {{ detail.firstName }}</div>
+                        <div class="font-bold text-xl mb-2">Name - {{ detail.firstName }}</div>
                         <div class="font-bold text-xl mb-2">Mobile No - {{ detail.contact }}</div>
-
+                        <button @click="editData(index)"
+                        class="border border-gray-400 px-4 py-1 max-w-xs rounded bg-teal-600 text-white" type="submit"
+                        value="Submit">Edit</button>
                     </div>
 
                 </div>
