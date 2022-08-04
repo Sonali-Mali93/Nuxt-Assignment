@@ -19,7 +19,7 @@
                     <label for="Name">Mobile No:</label>
                     <input v-model="user.contact"
                         class="border border-gray-400 block px-4 py-1 w-full rounded focus:outline-none focus:border-teal-500"
-                        type="text" name="contact" id="contact" required>
+                        type="tel" pattern="[9][0-9]{9}" name="contact" id="contact" required>
                 </div>
             </div>
             <div class="form_action_button space-x-2">
@@ -30,7 +30,7 @@
 
         <div class="flex flex-wrap flex-row space-y-3 space-x-3">
             <!---main card div-->
-            <div v-for="(per) in timeSlots" :key="per" v-bind:index="index" class="max-w-sm rounded overflow-hidden border border-red-700 ">
+            <div v-for="(per) in timeSlots" :key="per" v-bind:index="index" class="max-w-sm rounded overflow-hidden border border-red-700 bg-green-200 ">
 
                 <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">Start Time - {{ per.startTime }}</div>
