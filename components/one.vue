@@ -19,28 +19,30 @@
                     <label for="Name">Mobile No:</label>
                     <input v-model="user.contact"
                         class="border border-gray-400 block px-4 py-1 w-full rounded focus:outline-none focus:border-teal-500"
-                        type="tel" pattern="[9][0-9]{9}" name="contact" id="contact" required>
+                        type="tel" pattern="[978][0-9]{9}" name="contact" id="contact" required>
                 </div>
             </div>
             <div class="form_action_button space-x-2">
-                <button class="border border-gray-400 px-4 py-2 max-w-xs rounded bg-teal-600 text-white" type="submit"
+                <button @click="showForm"
+                    class="border border-gray-400 px-4 py-2 max-w-xs rounded bg-teal-600 text-white" type="submit"
                     value="Submit">Submit</button>
             </div>
         </form>
 
-        <div class="flex flex-wrap flex-row space-y-3 space-x-3">
+        <div class="grid grid-cols-4 space-y-3 space-x-3 m-10">
             <!---main card div-->
-            <div v-for="(per) in timeSlots" :key="per" v-bind:index="index" class="max-w-sm rounded overflow-hidden border border-red-700 bg-green-200 ">
+            <div v-for="(per) in timeSlots" :key="per" v-bind:index="index"
+                class="max-w-sm rounded overflow-hidden border border-red-700 bg-lime-600 ml-4">
 
                 <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">Start Time - {{ per.startTime }}</div>
-                    <div class="font-bold text-xl mb-2">Last Time - {{ per.endTime }}</div>
+                    <p class="font-bold  mb-2">Start Time - {{ per.startTime }}</p>
+                    <p class="font-bold  mb-2">Last Time - {{ per.endTime }}</p>
                     <div v-for="(detail, index) in users" v-bind:index="index" :key="detail">
-                        <div class="font-bold text-xl mb-2">Name - {{ detail.firstName }}</div>
-                        <div class="font-bold text-xl mb-2">Mobile No - {{ detail.contact }}</div>
+                        <p class="font-bold mb-2">Name - {{ detail.firstName }}</p>
+                        <p class="font-bold  mb-2">Mobile No - {{ detail.contact }}</p>
                         <button @click="editData(index)"
-                        class="border border-gray-400 px-4 py-1 max-w-xs rounded bg-teal-600 text-white" type="submit"
-                        value="Submit">Edit</button>
+                            class="border border-yellow-400 px-4 py-1 max-w-xs rounded bg-yellow-200 text-green-600 font-bold"
+                            type="submit" value="Submit">Edit</button>
                     </div>
 
                 </div>
@@ -108,10 +110,6 @@ export default {
             }
             console.log(this.users)
         },
-        deleteData(index) {
-            if (confirm('You Want To Delete The Data ?'))
-                this.users.splice(index, 1);
-        },
         editData(index) {
             if (confirm('Do you want to edit data?'))
                 console.log("users = ", this.users[index].firstName)
@@ -123,7 +121,6 @@ export default {
         showForm() {
             this.flag = true
         }
-       
     }
 }
 </script>
